@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     <title></title>
+
+     <meta charset="utf-8">
+
+     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+     <meta http-equiv="x-ua-compatible" content="IE=Edge"> 
+
+     <!-- Ensures the web page looks good on all screen sizes. -->
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+
+
+     <script type="text/javascript">
+
+        var map, layer, animation;
+         //Create an instance of the map control and set some options.
+         function InitMap()
+         {
+             map = new atlas.Map('myMap', {
+                 center: [-122.33, 47.6],
+                 zoom: 12,
+                 language: 'en-US',
+                 authOptions: {
+                     authType: "subscriptionKey",
+                     subscriptionKey: 'aW6Eas3HvajyybnsHJ9Z_L0H1a-z3Uh8OD-TzknMLWw'
+                 }
+             });
+
+        //Wait until the map resources are ready.
+        map.events.add('ready', function () {
+
+        //Create a traffic control to let the user easily turn the traffic on an off.
+        map.controls.add(new atlas.control.TrafficControl(), {
+            position: 'top-right'
+        });
+
+        //Add a traffic legend. It will automatically appear whenever the map is displaying traffic flow data. This can be used on its own with the map or with the traffic toggle button control like in this sample.
+        map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-left' });
+});
+       
+
+
+
+
+
+         }
+
+
+         
+     </script>
+
+     <style>
+         html, body {
+             margin: 0;
+         }
+
+         #myMap {
+             height: 100vh;
+             width: 100vw;
+         }
+     </style>
+ </head>
+ <body onload="InitMap()">
+     <div id="myMap"></div>
+ </body>
+ </html>
