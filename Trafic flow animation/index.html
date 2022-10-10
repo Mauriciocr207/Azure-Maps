@@ -23,7 +23,7 @@
          function InitMap()
          {
              map = new atlas.Map('myMap', {
-                 center: [-122.33, 47.6],
+                 center: [-89.623738, 20.967074],
                  zoom: 12,
                  language: 'en-US',
                  authOptions: {
@@ -50,11 +50,7 @@
                     strokeColor: [
                         'step',
                         ['get', 'traffic_level'],
-                        '#7A006A', //Purple
-                        0.01, '#EE2F53', //Red
-                        0.5, '#F0A50D', //Organge
-                        0.8, '#EBF00D', //Yellow
-                        1, "#66CC99" //Green
+                        '#7A006A', 0.01, '#EE2F53', 0.5, '#F0A50D', 0.8, '#EBF00D', 1, "#66CC99"
                     ],
 
                     //Scale the width of roads based on the level of traffic.
@@ -145,8 +141,8 @@
                 //Create a moving dashed line animation for each of the flow layers, but with different speedMultipliers.
                 //Reverse the animation direction as it appears to ensure the correct flow directions for different side of the road for most countries (drive on the right side).
                 var animationOptions = {
-                    gapLength: 2,
-                    dashLength: 2,
+                    gapLength: .001,
+                    dashLength: 100,
                     duration: 2000,
                     autoPlay: true,
                     loop: true,
